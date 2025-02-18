@@ -1,6 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Мастерклуб</title>
+<meta charset="utf-8">
+  <style>
+    * {
+      box-sizing:border-box;
+      font-family:arial;
+outline:none;
+user-select:none
+    }
+body {
+background:black;
+margin:0
+}
+.caret {
+font-weight:300;
+display:inline-block;
+margin-left:-2.5px
+}
+#animation {
+color:gainsboro;
+text-align:center;
+font-size:18px;
+user-select:none;
+height:17px;
+margin:10px 0
+}
+.showinfo {
+color:gainsboro;
+font:17px cursive;
+border-radius:50%;
+border:1px solid gainsboro;
+width:5.9vmin;
+height:6vmin;
+display:grid;
+place-items:center;
+float:right
+}
+#info {
+background:black;
+width:90%;
+color:gainsboro;
+border:1px solid gold;
+box-shadow:0 0 10px gold;
+border-radius:13px
+}
+#info::backdrop {
+background:rgba(0, 0, 0, 0.6) 
+}
+a {
+text-decoration:none;
+color:skyblue
+}
+.version {
+font:10.5px monospace;
+letter-spacing:-0.4px;
+word-spacing:-1.2px
+}
 
-<!--<link rel="stylesheet" href="./style.css">
-<div class="chat"></div>
-<form method="post" action="chat.php">
-  <input name="message" class="message">
-</form>-->
+  </style>
+</head>
+<body>
+<div id="animation"></div>
+
+<iframe src="https://lichess.org/tv/frame?theme=blue-marble&bg=system" style="width:100vmin; aspect-ratio: 10/11;" allowtransparency="true" frameborder="0">Твой браузер настолько старый, что не поддерживает фреймы. Зайди через нормальный.</iframe>
+
+<noscript>Ты отключил JavaScript в настройках браузера. Включи его, иначе сайт не сможет работать.</noscript>
+
+<i class="showinfo" onclick="info.showModal()">i</i>
+
+<dialog id="info">
+<svg style="width:30px; height:30px; float:right" onclick="info.close()">
+<polyline points="0,0 30,30 15,15 0,30 30,0" stroke="darkgrey" stroke-width="3px" fill="none"></polyline>
+</svg>
+
+Вступить в <a href="https://lichess.org/team/0EghwKKn">Мастерклуб</a><br>
+
+Автор сайта: <a href="https://lichess.org/@/Maksim_tr">2+2=5</a><br>
+
+<p>Сайт начал создаваться: 05.02.2025<br>
+Сайт создался: -<br>
+Последнее обновление: 05.02.2025<br></p>
+<div class="version">Версия: 0.4</div>
+
+</dialog>
+  <script>
+
+    const sentence = 'Привет! Ты попал на сайт Мастерклуба!'
+let i = 0;
+
+const interval = setInterval(function() { document.getElementById('animation').innerHTML = document.getElementById('animation').innerHTML.replace('<div class="caret">|</div>', '');
+document.getElementById('animation').innerHTML += sentence[i] + '<div class="caret">|</div>'; i++ }, 100);
+
+setTimeout(function() { clearInterval(interval); document.querySelector('.caret').innerHTML = ""; }, 3700);
+  </script>
+</body>
+</html>
