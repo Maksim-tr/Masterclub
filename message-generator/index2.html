@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Генератор сообщений</title>
+  <style>
+    body {
+background:black;
+}
+* {
+box-sizing:border-box;
+font-family:arial
+}
+.messages {
+border:1px solid slategrey;
+border-radius:10px;
+height:90vh;
+overflow:auto;
+}
+.message {
+padding:10px;
+background:dodgerblue;
+border:1px solid blue;
+border-radius:8px;
+display:inline-block;
+margin:3px 5px 0;
+user-select:none;
+animation:anim 0.15s;
+}
+#lastelement {
+height:5px;
+position:relative
+}
+
+@keyframes anim {
+0% {
+margin:3px -50px 0;
+}
+100% {
+margin:3px 5px 0;
+}
+}
+  </style>
+</head>
+<body>
+<div class="messages"><div id="lastelement"></div></div>
+  <script>
+const msgs = document.querySelectorAll('.message');
+    const messages = ['Привет!', 'Ты кто?', 'Как дела?', 'Сколько тебе лет?', 'Мне 14', 'Мне 13', '12', '11', 'Хорошо', 'Норм', '10', 'Не очень...', 'Человек', 'Че это за чат?', 'Хз', 'Скинуть мем?', 'Да', 'Нет', 'Давай', '2+2=5', 'Согл', '2+2=2', 'Ты с ума сошел?', 'Скучно', 'Давайте о другом', 'ок'];
+    const users = ['Алексей', '𝔸𝕟𝕕𝕣𝕖𝕪', 'Кровь мамонта', 'Даша', 'ььь', 'Человек', 'Шишка', 'Аня#люблюАрину', 'Продажа зонтов', 'Странный ник', 'Роман', 'Надежда', 'Рандом из инета'];
+
+setInterval(function() { let message = document.createElement('div'); message.className="message"; message.innerHTML = '<strong>' + users[Math.floor(Math.random() * users.length)] + '</strong><br />' + messages[Math.floor(Math.random() * messages.length)]; document.querySelector('#lastelement').before(message); document.querySelector('#lastelement').insertAdjacentHTML('beforebegin', '<br />'); document.getElementById('lastelement').scrollIntoView(); }, 2000);
+
+  </script>
+</body>
+</html>
