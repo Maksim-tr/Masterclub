@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Крестики-нолики</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<button onclick="settings.showModal()" class="openSettings">Настройки</button>
+<dialog id="settings">
+<select class="type" onchange="selection()">
+<option>Игра на двоих</option>
+<option>С ботом</option>
+<option>Редактор</option>
+</select>
+<svg class="close" onclick="settings.close()">
+<line x1="0" y1="0" x2="25" y2="25" />
+<line x1="25" y1="0" x2="0" y2="25" />
+</svg><br><br>
+<span class="text">Включить всплывающие окна</span>
+<input type="checkbox" checked id="alerts" oninput="Alerts()"><br>
+<span class="text">Запускать новую игру</span><input type="checkbox" id="autoGame" oninput="autoNewGame()"><br>
+<span class="text">Фон</span>
+<input type="color" oninput="changeTheme()" id="theme"><br>
+
+<span class="text">Цвет ячеек</span>
+<input type="color" 
+value="#666666" oninput="changeCellColor()" id="cellColor"><br>
+
+<span class="text">Цвет символов</span>
+<input type="color" 
+value="#00FF00" oninput="changeSymbolsColor()" id="symbolsColor"><br>
+
+<span class="text">Размер поля</span>
+<input type="range" oninput="changeBoardSize()" value="70" id="boardSize">
+<div class="reset" onclick="res()">Обнулить счет</div>
+</dialog>
+
+<div id="result">0:0</div>
+<div class="editor">
+<div id="plx">x</div>
+<div id="plo">o</div>
+<div id="del">🗑</div>
+</div>
+  <div class="game">
+<div id="cell1" class="cell empty"></div>
+<div id="cell2" class="cell empty"></div>
+<div id="cell3" class="cell empty"></div>
+<div id="cell4" class="cell empty"></div>
+<div id="cell5" class="cell empty"></div>
+<div id="cell6" class="cell empty"></div>
+<div id="cell7" class="cell empty"></div>
+<div id="cell8" class="cell empty"></div>
+<div id="cell9" class="cell empty"></div>
+</div>
+
+<button class="newGame" onmouseup="newGame()">Новая игра</button>
+<script src="./script.js"></script>
+</body>
+</html>
