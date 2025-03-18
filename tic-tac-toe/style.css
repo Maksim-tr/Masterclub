@@ -1,0 +1,194 @@
+
+body {
+background:black;
+}
+* {
+font-family:arial;
+box-sizing:border-box;
+user-select:none
+}
+.cell {
+display:grid;
+width:70px;
+height:70px;
+background:#666;
+border-radius:5px;
+place-items:center;
+position:relative;
+font-size:calc(70px / 1.25);
+font-weight:300;
+user-select:none;
+color:lime
+}
+#result {
+background:linear-gradient(to left, darkorange, gold);
+width:170px;
+height:50px;
+border-radius:10px;
+display:grid;
+place-items:center;
+font-size:30px;
+font-weight:300;
+margin:25px auto 0;
+user-select:none
+}
+.newGame {
+height:60px;
+width:200px;
+background:linear-gradient(to left, #00d401, springgreen);
+margin:20px auto 0;
+display:block;
+border-radius:15px;
+border:none;
+font-size:17px;
+user-select:none;
+box-shadow:0 0 15px lime;
+transition:all .2s linear
+}
+.newGame:active {
+box-shadow:0 0 20px lime;
+animation:gradient 0.15s linear;
+background:linear-gradient(to right, #00d401, springgreen);
+}
+@keyframes gradient {
+0% {
+background:linear-gradient(to left, #00d401, springgreen);
+}
+25% {
+background:linear-gradient(to left, #00d401, #00d401, springgreen, springgreen, springgreen, #00d401);
+}
+50% {
+background:linear-gradient(to left, #00d401, springgreen, springgreen, #00d401)
+}
+75% {
+background:linear-gradient(to left, #00d401, springgreen, springgreen, springgreen, #00d401, #00d401)
+}
+100% {
+background:linear-gradient(to left, springgreen, #00d401);
+}
+}
+.game {
+display:flex;
+flex-wrap:wrap;
+width:216px;
+gap:3px;
+margin:40px auto;
+}
+#settings::backdrop {
+background:rgba(0, 0, 0, 0.6);
+}
+#settings {
+background:#666;
+border:1px solid orange;
+box-shadow:0 0 10px gold;
+border-radius:15px
+}
+#settings input {
+animation:background 5s ease-in infinite;
+position:relative;
+top:3.3px;
+}
+@keyframes background {
+0%, 100% {
+accent-color:gold
+}
+50% {
+accent-color:green
+}
+}
+.text {
+background:transparent;
+color:gainsboro;
+height:26px;
+line-height:26px
+}
+.type {
+width:115px;
+height:25px;
+border-radius:5px;
+border:1px solid orange;
+box-shadow:0 0 10px gold;
+color:gainsboro;
+outline:none
+}
+.type, input[type="color"] {
+background:black
+}
+.close {
+width:25px;
+height:25px;
+float:right;
+stroke:gainsboro;
+background:transparent;
+stroke-width:2px;
+animation:rotate 1.5s ease-in-out infinite
+}
+@keyframes rotate {
+0% {
+transform:rotate(0deg) 
+}
+100% {
+transform:rotate(90deg) 
+}
+}
+.openSettings {
+background:linear-gradient(to top left, royalblue, dodgerblue, dodgerblue);
+height:50px;
+width:180px;
+display:block;
+margin:15px auto 0;
+border-radius:10px;
+border:none;
+font-size:16px;
+user-select:none
+}
+#plx, #plo, #del{
+color:lime;
+height:50px;
+width:50px;
+border-radius:8px;
+background:#666;
+font-size:40px;
+display:none;
+font-weight:300;
+line-height:50px;
+text-align:center;
+user-select:none
+}
+.editor {
+text-align:center;
+margin: 10px 0
+}
+#del:hover, #plo:hover, #plx:hover {
+opacity:0.7
+}
+.reset {
+background:red;
+border-bottom:1.5px solid darkred;
+width:200px;
+display:grid;
+place-items:center;
+color:gainsboro;
+height:50px;
+border-radius:11.7px;
+font-size:16px;
+margin:15px auto 0
+}
+.reset:active {
+animation:click 0.1s linear;
+border-bottom:0px solid darkred;
+height:48.5px;
+margin-top:16.5px;
+}
+@keyframes click {
+0% {
+border-bottom:1.5px solid darkred;
+margin-top:15;
+height:50px
+}
+100% {
+border-bottom:0px solid darkred;
+margin-top:16.5px;
+height:48.5px
+}
+}
